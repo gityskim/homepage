@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>onwheel</title>
+        <script>
+            function controlImageSize(e, img) {
+            // 코드를 작성하세요
+                if(e.wheelDelta<0){
+                    img.width -= 5;
+                    img.height -= 5;
+                }
+                else{
+                    img.width += 5;
+                    img.height +=5;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>마우스 휠을 이용한 이미지 확대/축소</h3>
+        <img
+        src="santorini.jpg"
+        width="280"
+        height="210"
+        onwheel="controlImageSize(event, this)"
+        />
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단어장 모두 출력</title>
+</head>
+<body>
+    <h3>나의 단어장 모두 출력</h3>
+    <hr>
+    <script>
+        for(let i=0; i<sessionStorage.length; i++) {
+            let key = sessionStorage.key(i);
+            let val = sessionStorage.getItem(key);
+            document.write(i+1 + " " + key + " " + val + "<br>");
+        }
+    </script>
+</body>
+</html>

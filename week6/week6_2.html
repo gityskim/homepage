@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" style="background-color: aliceblue;" width="1000" height="650"></canvas>
+    <script>
+        let x = 200;
+
+        let canvas = document.getElementById("myCanvas");
+        let context = canvas.getContext("2d");
+
+        function draw(){
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.beginPath();
+            context.fillStyle="green";
+            context.arc(x, 300, 20, 0, 2*Math.PI);
+            context.fill();
+            x+=10;
+            if(x==1000){
+                x=10;
+            }
+        }
+        setInterval("draw()", 40);
+    </script>
+</body>
+</html>

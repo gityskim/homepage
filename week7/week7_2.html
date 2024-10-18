@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>두 수 더하기/곱하기</title>
+    <script>
+        let mulWorker = new Worker("mul.js");
+        function send(obj){
+            let first = document.getElementById("first");
+            let second = document.getElementById("second");
+            let arr = [obj.innerHTML, first.value, second.value];
+            mulWorker.postMessage(arr);
+        }
+        mulWorker.onmessage = function (e){
+                let result = document.getElementById("result");
+                result.innerHTML = e.data;
+        }
+    </script>
+</head>
+<body>
+    <h3>두 수 더하기/곱하기</h3>
+    <hr>
+    <form>
+        <input type="text" id="first" size="2">
+        <input type="text" id="second" size="2">
+        <h1 id="result"></h1>
+        <button type="button" onclick="send(this)">add</button>
+        <button type="button" onclick="send(this)">mul</button>
+    </form>
+</body>
+</html>

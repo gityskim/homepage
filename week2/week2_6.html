@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>입력 값 계산</h2>
+    <form action="">
+        <input type="button" value="+" onclick="opChange1()">
+        <input type="button" value="-" onclick="opChange2()">
+        <input type="button" value="*" onclick="opChange3()">
+        <input type="button" value="/" onclick="opChange4()">
+        <br>
+        <input type="text" id="txt1" size="5" />
+        <span id="op">+</span>
+        <input type="text" id="txt2" size="5" />
+        <input type="button" value="계산" onclick="fAdd()" />
+        <h2>결과 : <span id="total">0</span></h2>
+    </form>
+
+    <script>
+        let op="+";
+        let result = 0;
+        function opChange1() {
+            op="+";
+            document.getElementById("op").innerHTML=op;
+        }
+        function opChange2() {
+            op="-";
+            document.getElementById("op").innerHTML=op;
+        }
+        function opChange3() {
+            op="*";
+            document.getElementById("op").innerHTML=op;
+        }
+        function opChange4() {
+            op="/";
+            document.getElementById("op").innerHTML=op;
+        }
+        function fAdd() {
+            switch(op){
+                case "+":
+                    result = parseInt(txt1.value) + parseInt(txt2.value);
+                    break;
+                case "-":
+                    result = parseInt(txt1.value) - parseInt(txt2.value);
+                    break;
+                case "*":
+                    result = parseInt(txt1.value) * parseInt(txt2.value);
+                    break;
+                case "/":
+                    result = parseInt(txt1.value) / parseInt(txt2.value);
+                    break;
+            }
+            document.getElementById("total").innerHTML=txt1.value + op + txt2.value + "=" + result;
+            txt1.value=null;
+            txt2.value=null;
+        }
+    </script>
+</body>
+</html>

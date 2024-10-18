@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head><title>계산 문제</title></head>
+<body onload="start()">
+    <h3>계산 문제를 풀어 봅시다.</h3>
+    문제는 자동으로 생성되며, 10초가 지나면 자동 채점됩니다.
+    <div>남은 시간 <span id="clock">10</span></div>
+    <hr>
+        <form>
+            <table>
+                <tr>
+                    <td class="question"></td>
+                    <td><input class="answer" type="text" size="8"></td>
+                </tr>
+                <tr>
+                    <td class="question"></td>
+                    <td><input class="answer" type="text" size="8"></td>
+                </tr>
+                <tr>
+                    <td class="question"></td>
+                    <td><input class="answer" type="text" size="8"></td>
+                </tr>
+                <tr>
+                    <td class="question"></td>
+                    <td><input class="answer" type="text" size="8"></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="start()">다시</button></td>
+                    <td><span id="score">0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                </tr>
+            </table>
+        </form>
+    <script>
+        function start(){
+            let time = document.getElementById("clock");
+            time.innerHTML = 10;
+            let result = document.getElementById("score");
+            result.innerHTML = 0;
+            let td = document.getElementsByClassName("question");
+            for(let i=0;i<td.length;i++){
+                td[i].innerHTML = Math.floor(Math.random()*100) + "+" + Math.floor(Math.random()*100);
+            }
+            let timerID = setInterval(function(){
+                time.innerHTML--;
+                if(time.innerHTML==0){
+                    clearInterval(timerID);
+                    let anser_td = document.getElementsByClassName("answer");
+                    for(let i=0;i<td.length;i++){
+                        if(eval(td[i].innerHTML)==anser_td[i].value)
+                            result.innerHTML++;   
+                    }
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

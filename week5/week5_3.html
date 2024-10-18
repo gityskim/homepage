@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse : collapse;
+        }
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid blue;
+        }
+    </style>
+    <script>
+        let row = 10;
+        let col = 10;
+        document.write("<table>");
+        for(let i = 0; i < row; i++){
+            document.write("<tr>");
+            for(let j = 0; j < col; j++){
+                document.write("<td>");
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+        let img = document.createElement('img');
+        img.src = "https://i.namu.wiki/i/TcQoXMelA7oembrybXxu4DC3GgUWB8tplPvRy1gKgz-HNutSHZOVMVkpN18G3_bEPfFAmg_2QqFDp3e_vaBwPiknGdpDPEzsI7TzdKkhivx49Wov7UxypAuhcWJWyEoPEKlCB5kE9umAsRZJaT3ojg.webp";
+        img.width = 45;
+        img.height = 45;
+        img.onclick = function(){
+            let parent = this.parentElement; 
+            parent.removeChild(this);
+            let cur_index = Math.floor(Math.random() * 100);
+            let sel = document.getElementsByTagName("td");
+	        sel[cur_index].appendChild(img);
+        }
+        let cur_index = Math.floor(Math.random() * 100);
+        let sel = document.getElementsByTagName("td");
+	    sel[cur_index].appendChild(img);
+    </script>
+</head>
+
+<body>
+    
+</body>
+</html>

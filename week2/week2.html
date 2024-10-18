@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2주차 실습</title>
+</head>
+<body>
+    <h2 id="count">0</h2>
+    <form action="">
+        <input type="button" value=" 클릭 " onclick="fCount()">
+
+    </form>
+    <script>
+        let cnt = 0;
+        function fCount() {
+            //alert("버튼 클릭");
+            //document.write("버튼클릭");
+            document.getElementById("count").innerHTML = ++cnt;
+        }
+    </script>
+</body>
+</html>

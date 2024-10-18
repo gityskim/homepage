@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><head><title>4주차 실습01</title></head>
+    <body>
+    <ul>
+        <li>먹거리 리스트</li>
+        <ol id="food">
+            <li>피자</li>
+            <li>마라탕</li>
+            <li>초밥</li>
+            <li>소고기</li>
+            <li>떡볶이</li>
+        </ol>
+        <li>맛집 리스트</li>
+        <ol id="restaurant">
+            <li>해물집</li>
+            <li>초밥집</li>
+            <li>소고기집</li>
+            <li>피자집</li>
+        </ol>
+    </ul>
+    <hr />
+    <form action="">
+        <input type="button" value=" 먹거리 " onclick="foodList()" />
+        <input type="button" value=" 맛집 " onclick="restList()" />
+    </form>
+    <span id="view"></span>
+    <script>
+        function foodList(){
+            let food = document.getElementById("food");
+            let foodArray = food.getElementsByTagName("li");
+            
+            let text = document.getElementById("view");
+            text.innerHTML="";
+            for(let i=0;i<foodArray.length;i++) {
+                text.innerHTML = text.innerHTML + foodArray[i].innerHTML + ", ";
+            }
+        }
+        function restList(){
+            let rest = document.getElementById("restaurant");
+            let restArray = rest.getElementsByTagName("li");
+            
+            let text = document.getElementById("view");
+            text.innerHTML="";
+            for(let i=0;i<restArray.length;i++) {
+                text.innerHTML = text.innerHTML + restArray[i].innerHTML + ", ";
+            }
+        }
+    </script>
+</body>
+</html>

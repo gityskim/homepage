@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function dClock() {
+            var dt = new Date();
+            var month = dt.getMonth();
+            var date = dt.getDate();
+            var day = dt.getDay();
+            var hours = dt.getHours();
+            var minutes = dt.getMinutes();
+            var seconds = dt.getSeconds();
+
+            document.getElementById("show").innerHTML = hours + ":" + minutes + ":" + seconds;
+            if(hours>8&&hours<21){
+                document.getElementById("tt").innerHTML = "영 업 중";
+                document.body.style.backgroundColor = "white";
+                document.body.style.color = "black";
+            }
+            else{
+                document.getElementById("tt").innerHTML = "영 업 종 료";
+                document.body.style.backgroundColor = "black";
+                document.body.style.color = "white";
+            }
+        }
+        setInterval(dClock, 1000);
+    </script>
+</head>
+<body>
+    현재 시간 : <span id="show">00:00:00</span><br>
+    <h3 id="tt"><span></span></h3>
+</body>
+</html>

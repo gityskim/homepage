@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function tree() {
+            this.water = 0; // 물
+            this.light = 0; // 빛
+            this.growth = 0; // 성장
+            this.temperature = 0; // 온도
+            this.nutrient = 0; // 영양분
+            this.giveWater = function (water) {
+                this.water += water;
+            };
+            this.rainy = function (rain) {
+                this.water += rain;
+            };
+            this.giveLight = function (light) {
+                this.light += light;
+            };
+            this.temperature = function (temp) {
+                this.temperature = temp;
+            }
+            this.givenutrient = function(nut) {
+                this.nutrient += nut;
+            }
+            this.grow = function () {
+                let growthText = "";
+                if (this.light > 0 && this.water > 0 && this.temperature > 10 && this.nutrient > 0) {
+                    this.growth += 1; // 성장 증가
+                } 
+                else {
+                    this.growth -= 1; // 성장 감소
+                }
+                if (this.light > 0) this.light -= 1;
+                if (this.water > 0) this.water -= 1;
+                if (this.temperature > 0) this.temperature -= 1;
+                if (this.nutrient > 0) this.nutrient -= 1;
+            };
+            this.view = function () {
+                document.getElementById("light").innerHTML = this.light;
+                document.getElementById("water").innerHTML = this.water;
+                document.getElementById("growth").innerHTML = this.growth;
+                document.getElementById("temp").innerHTML = this.temperature;
+                document.getElementById("nutrient").innerHTML = this.nutrient;
+            };
+        }
+        function display() {
+            green.grow();
+            green.view();
+        }
+        setInterval(display, 1000);
+        let green = new tree();
+        green.giveLight(10);
+        green.giveWater(5);
+        green.temperature(25);
+        green.givenutrient(10);
+</script>
+    <h2>식물 키우기</h2>
+    <button onclick="green.giveLight(15)">빛 공급</button> :
+    <span id="light">0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button onclick="green.giveWater(10)">수분 공급</button> :
+    <span id="water">0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button onclick="green.temperature(25)">온도</button> :
+    <span id="temp">0</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button onclick="green.givenutrient(10)">영양분</button> :
+    <span id="nutrient">0</span><br/>
+    <h3>
+    성장 크기 : <span id="growth">0</span> &nbsp;&nbsp;&nbsp;
+    </h3>
+    <hr />
+    
+</body>
+</html>
